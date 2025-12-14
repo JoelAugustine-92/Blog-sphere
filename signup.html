@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up | Blog-Sphere</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="auth-container">
+        <div class="auth-box">
+            <h2>Blog-Sphere</h2>
+            <p class="subtitle">Create your account – it's free!</p>
+
+            <form id="signupForm" class="auth-form">
+                <input type="email" id="regEmail" placeholder="Email address" required>
+                <input type="password" id="regPassword" placeholder="Choose password" required minlength="6">
+                <button type="submit" class="auth-btn">Create Account</button>
+            </form>
+
+            <div class="divider">
+                <span>or sign up with</span>
+            </div>
+
+            <div class="social-buttons">
+                <button class="social-btn google-btn" id="googleSignup">
+                    <img src="https://www.google.com/favicon.ico" width="18" alt="Google">
+                    Google
+                </button>
+                <button class="social-btn facebook-btn" id="facebookSignup">
+                    <img src="https://facebook.com/favicon.ico" width="18" alt="Facebook">
+                    Facebook
+                </button>
+            </div>
+
+            <p class="switch-auth">
+                Already have an account? <a href="login.html">Sign In</a>
+            </p>
+        </div>
+    </div>
+
+    <script>
+        // Your existing signup logic
+        let users = JSON.parse(localStorage.getItem("users")) || [];
+
+        document.getElementById("signupForm").addEventListener("submit", function(e) {
+            e.preventDefault();
+            const email = document.getElementById("regEmail").value.trim();
+            const password = document.getElementById("regPassword").value;
+
+            if (users.find(u => u.email === email)) {
+                alert("This email is already registered!");
+                return;
+            }
+
+            const newUser = { email, password, role: "user" };
+            users.push(newUser);
+            localStorage.setItem("users", JSON.stringify(users));
+
+            localStorage.setItem("isLoggedIn", "true");
+            localStorage.setItem("currentUser", JSON.stringify(newUser));
+            alert("Account created successfully!");
+            window.location.href = "index.html";
+        });
+
+        // Social signup (demo)
+        document.getElementById("googleSignup").addEventListener("click", () => alert("Google signup coming soon!"));
+        document.getElementById("facebookSignup").addEventListener("click", () => alert("Facebook signup coming soon!"));
+    </script>
+</body>
+</html>

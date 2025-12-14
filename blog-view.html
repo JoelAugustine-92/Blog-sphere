@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Blog | Blog-Sphere</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container" id="blogView"></div>
+
+<script>
+  const blogs = JSON.parse(localStorage.getItem("blogs")) || [];
+  const id = new URLSearchParams(window.location.search).get("id");
+
+  if (!blogs[id]) {
+    document.getElementById("blogView").innerHTML = "<h2>Blog not found</h2>";
+  } else {
+    const b = blogs[id];
+    document.getElementById("blogView").innerHTML = `
+      <h1>${b.title}</h1>
+      <p class="date">${b.date} • ${b.author}</p>
+      <img src="${b.image || 'images/default.jpg'}" style="width:100%;max-width:700px">
+      <p style="margin-top:20px">${b.content}</p>
+    `;
+  }
+</script>
+
+</body>
+</html>

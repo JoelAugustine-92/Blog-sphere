@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | Blog-Sphere</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="auth-container">
+        <div class="auth-box">
+            <h2>Blog-Sphere</h2>
+            <p class="subtitle">Welcome back! Please login to your account</p>
+
+            <form id="loginForm" class="auth-form">
+                <input type="email" id="loginEmail" placeholder="Email address" required>
+                <input type="password" id="loginPassword" placeholder="Password" required minlength="6">
+                <button type="submit" class="auth-btn">Login</button>
+            </form>
+
+            <div class="divider">
+                <span>or continue with</span>
+            </div>
+
+            <div class="social-buttons">
+                <button class="social-btn google-btn" id="googleLogin">
+                    <img src="https://www.google.com/favicon.ico" width="18" alt="Google">
+                    Google
+                </button>
+                <button class="social-btn facebook-btn" id="facebookLogin">
+                    <img src="https://facebook.com/favicon.ico" width="18" alt="Facebook">
+                    Facebook
+                </button>
+            </div>
+
+            <p class="switch-auth">
+                Don't have an account? <a href="signup.html">Sign Up</a>
+            </p>
+        </div>
+    </div>
+
+    <script>
+        // Your existing login logic here (updated slightly for consistency)
+        let users = JSON.parse(localStorage.getItem("users")) || [];
+
+        // Add default admin for testing
+        if (!users.find(u => u.email === "admin@blogsphere.com")) {
+            users.push({ email: "admin@blogsphere.com", password: "admin123", role: "admin" });
+            localStorage.setItem("users", JSON.stringify(users));
+        }
+
+        document.getElementById("loginForm").addEventListener("submit", function(e) {
+            e.preventDefault();
+            const email = document.getElementById("loginEmail").value.trim();
+            const password = document.getElementById("loginPassword").value;
+
+            const user = users.find(u => u.email === email && u.password === password);
+            if (!user) {
+                alert("Invalid email or password!");
+                return;
+            }
+
+            localStorage.setItem("isLoggedIn", "true");
+            localStorage.setItem("currentUser", JSON.stringify(user));
+            alert("Login successful!");
+            window.location.href = "index.html";
+        });
+
+        // Social login (demo)
+        document.getElementById("googleLogin").addEventListener("click", () => alert("Google login coming soon!"));
+        document.getElementById("facebookLogin").addEventListener("click", () => alert("Facebook login coming soon!"));
+    </script>
+</body>
+</html>
