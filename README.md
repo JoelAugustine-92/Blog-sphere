@@ -1,8 +1,8 @@
-📝 Blog Posting Website
+#📝 Blog Posting Website
 
 A responsive blog posting website built using HTML, CSS, and JavaScript.
 This project focuses on frontend fundamentals, responsive design, and dynamic content handling without using a backend.
-🚀 Features
+#🚀 Features
 
 Responsive design (mobile, tablet, desktop)
 
@@ -20,7 +20,7 @@ Data persistence using browser localStorage
 
 Separate admin-style page for managing blogs
 
-🛠️ Technologies Used
+#🛠️ Technologies Used
 
 HTML5 – Structure and layout of the website
 
@@ -30,7 +30,7 @@ JavaScript (Vanilla JS) – Interactivity and dynamic content
 
 localStorage – Temporary data storage for blogs
 
-📚 What I Learned
+#📚 What I Learned
 
 Creating structured and reusable HTML layouts
 
@@ -48,7 +48,7 @@ Improving UI/UX for different screen sizes
 
 Understanding limitations of frontend-only applications
 
-⚠️ Limitations
+#⚠️ Limitations
 
 Data is stored locally in the browser (clears on cache reset)
 
@@ -56,7 +56,7 @@ No real authentication or backend
 
 Admin access is frontend-only
 
-🔮 Future Improvements
+#🔮 Future Improvements
 
 Add backend support (Node.js / Firebase / Supabase)
 
@@ -68,11 +68,12 @@ Add comments and likes feature
 
 Improve SEO and performance
 
-🎯 Purpose of This Project
+#🎯 Purpose of This Project
 
 This project was built to practice frontend development, strengthen core web concepts, and understand how real-world blog websites are structured before integrating backend technologies.
 
-📌 Author
+#📌 Author
 
 Your Name
+Joel Augustine
 Frontend Developer | Learning by Building 🚀
