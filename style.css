@@ -9,9 +9,11 @@ body{
     color: #333;
     overflow-x: hidden;   /* allow vertical scroll */
 }
-.hero{
+.hero {
     height: 100vh;
-    background: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),url('images/1.jpg')center/cover no-repeat fixed;
+    background:
+      linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+      url('images/1.jpg') center/cover no-repeat;
     color: white;
     display: flex;
     flex-direction: column;
@@ -1006,5 +1008,6 @@ td {
     display: flex;
   }
 }
+
 
 /* End of CSS file */
